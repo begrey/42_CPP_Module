@@ -6,21 +6,19 @@ SRCS		= ./Account.cpp \
 OBJS		= $(SRCS:.c=.o)
 RM			= rm -f
 CC			= clang++
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror #-fsanitize=address
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(CC) $(CFLAGS) ${SRCS} -o ${NAME}
+	$(CC) -lpthread $(CFLAGS) ${OBJS} -o ${NAME}
 
 fclean : clean
-	$(RM) $(NAME) $(bonus)
+	$(RM) $(NAME)
 
 clean :
-	$(RM) $(NAME)
+	$(RM) *.o
 
 re : fclean all
 
-bonus : all
-
-.PHONY: all clean fclean re bonus .c.o
+.PHONY: all clean fclean re bonus .c.o    
