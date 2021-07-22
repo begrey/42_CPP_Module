@@ -21,15 +21,17 @@ void add_phonebook(phoneBook *pb, int num)
     std::string field[5];
 
     input = set_input();
-    if (num >= 8)
-    {
-        std::cout << "Only 8 Contact Allowed" <<std::endl;
-        return ;
-    }
+    num %= 8;
     for (int i = 0; i < 5; i++)
     {
         std::cout << input[i] << ": ";
         std::cin >> field[i];
+        if (std::cin.eof())
+        {
+            std::cin.ignore();
+            std::cout << "EOF" <<std::endl;
+            exit(0);
+        }
     }
     pb[num] = phoneBook(field[0], field[1], field[2], field[3], field[4]);
 }
@@ -47,11 +49,11 @@ void print(std::string field)
 void print_contact(phoneBook pb)
 {
 
-    std::cout << pb.f_name << std::endl;
-    std::cout << pb.l_name << std::endl;
-    std::cout << pb.nickname << std::endl;
-    std::cout << pb.phone << std::endl;
-    std::cout << pb.secret << std::endl;
+    std::cout << pb.getFname() << std::endl;
+    std::cout << pb.getLname() << std::endl;
+    std::cout << pb.getNickname() << std::endl;
+    std::cout << pb.getPhone() << std::endl;
+    std::cout << pb.getSecret() << std::endl;
 }
 
 void search_phonebook(phoneBook *pb, int num)
@@ -63,22 +65,31 @@ void search_phonebook(phoneBook *pb, int num)
         std::cout << "No Contact! please ADD contact!" << std::endl;
         return ;
     }
+    if (num > 8)
+        num = 8;
     for (int i = 0; i < num; i++)
     {
         print(std::to_string(i + 1));
-        print(pb[i].f_name);
-        print(pb[i].l_name);
-        print(pb[i].nickname);
+        print(pb[i].getFname());
+        print(pb[i].getLname());
+        print(pb[i].getNickname());
         std::cout << std::endl;
     }
     std::cout << "Enter index to show full page: ";
     std::cin >> index;
-    if (index > num || index < 1)
+    if (std::cin.eof())
+    {
+        std::cin.ignore();
+        std::cout << "EOF" <<std::endl;
+        exit(0);
+    }
+    else if (index > num || index < 1 || std::cin.fail())
     {
         std::cout << "Wrong index!!" << std::endl;
-        return ;
+        std::cin.clear();
     }
-    print_contact(pb[index- 1]);
+    else 
+        print_contact(pb[index- 1]);
 }
 
 int main(int argc, char **argv)
@@ -95,16 +106,16 @@ int main(int argc, char **argv)
     {
         std::cout << "Enter Command [ADD] OR [SEARCH] OR [EXIT] : ";
         std::cin >> command;
-        if ((command.compare("ADD")) == 0)
+        if (std::cin.eof())
+            break;
+        else if ((command.compare("ADD")) == 0)
         {
             add_phonebook(pb, num);
-            if (num != 8)
-                num++;
+            num++;
         }
         else if ((command.compare("SEARCH")) == 0)
             search_phonebook(pb, num);
-        else
-            std::cin.ignore();
+        std::cin.ignore();
     } while(command.compare("EXIT"));
     //delete pb;
     std::cout << "EXIT XD" << std::endl;

@@ -14,8 +14,6 @@ int main(int argc, char **argv)
         for (int j = 0; j < (int)speak.length(); j++)
             speak[j] = toupper(speak[j]);
         std::cout << speak;
-        if ((i + 1) != argc && speak == "")
-            std::cout << " ";
     }
     std::cout << std::endl;
     return 0;

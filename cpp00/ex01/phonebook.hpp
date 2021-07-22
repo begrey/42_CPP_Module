@@ -3,7 +3,7 @@
 #include <iostream>
 
 class phoneBook {
-public:
+private:
     //멤버변수
     std::string f_name;
     std::string l_name;
@@ -29,9 +29,35 @@ public:
         this->phone = phone;
         this->secret = secret;
     }
-    //소멸자(다중 정의 불가능)
-    // ~phoneBook() {
-    //     std::cout << "phonebook is expired!!XD." << std::endl;
-    // }
+    std::string getFname(){
+        return f_name;
+    }
+    std::string getLname(){
+        return l_name;
+    }
+    std::string getNickname(){
+        return nickname;
+    }
+    std::string getPhone(){
+        return phone;
+    }
+    std::string getSecret(){
+        return secret;
+    }
+    void setFname(std::string n){
+        this->f_name = n;
+    }
+    void setLname(std::string n){
+        this->l_name = n;
+    }
+    void setNickname(std::string n){
+        this->nickname = n;
+    }
+    void setPhone(std::string p){
+        this->phone = p;
+    }
+    void setSecret(std::string s){
+        this->secret = s;
+    }
 };
 #endif
