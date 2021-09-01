@@ -9,7 +9,7 @@ SRCS		= ./main.cpp \
 OBJS		= $(SRCS:.c=.o)
 RM			= rm -f
 CC			= clang++
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -Wshadow
 
 all : $(NAME)
 

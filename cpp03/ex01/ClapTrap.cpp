@@ -37,26 +37,26 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& origin){
     this->Name = origin.Name;
     return (*this);
 }
-void ClapTrap::setName(std::string Name) {
-    this->Name = Name;
+void ClapTrap::setName(std::string _Name) {
+    this->Name = _Name;
 }
 std::string ClapTrap::getName() {
     return this->Name;
 }
-void ClapTrap::setHitpoints(int Hitpoints) {
-    this->Hitpoints = Hitpoints;
+void ClapTrap::setHitpoints(int _Hitpoints) {
+    this->Hitpoints = _Hitpoints;
 }
 int ClapTrap::getHitpoints() {
     return Hitpoints;
 }
-void ClapTrap::setEnergy_points(int Energy_points) {
-    this->Energy_points = Energy_points;
+void ClapTrap::setEnergy_points(int _Energy_points) {
+    this->Energy_points = _Energy_points;
 }
 int ClapTrap::getEnergy_points() {
     return Energy_points;
 }
-void ClapTrap::setAttack_damage(int Attack_damage) {
-    this->Attack_damage = Attack_damage;
+void ClapTrap::setAttack_damage(int _Attack_damage) {
+    this->Attack_damage = _Attack_damage;
 }
 int ClapTrap::getAttack_damage() {
     return Attack_damage;

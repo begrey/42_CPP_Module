@@ -29,8 +29,8 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& origin) {
     std::cout << "[DiamondTrap][Constructor] Operator Overloading Called" << std::endl;
     return (*this);
 }
-void DiamondTrap::setName(std::string Name){
-    this->Name = Name;
+void DiamondTrap::setName(std::string _Name){
+    this->Name = _Name;
 }
 std::string DiamondTrap::getName(){
     return this->Name;
