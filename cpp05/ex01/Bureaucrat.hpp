@@ -43,7 +43,7 @@ class Bureaucrat
         };
         // ? sign이 true면 "<bureaucrat> signs <form>", 
         // ? sign이 false면 "<bureaucrat> cannot sign <form> because <reason>"
-        void signForm(const Form &f);
+        void signForm(Form &f);
 };
 
 

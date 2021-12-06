@@ -6,20 +6,22 @@
 
 int main()
 {
+	Intern intern;
+	Form *form;
+	Form *error;
 	try
 	{
-		Intern intern;
-		
-		Form* form;
 		form = intern.makeForm("presidential pardon", "jimkwon");
-
-		Form *error;
-
+		Bureaucrat b("b", 1);
+		b.signForm(*form);
+		b.executeForm(*form);
 		error = intern.makeForm(" error", "jimkwon2");
 	}
 	catch (std::exception &e)
 	{
 		std::cout << e.what() << '\n';
 	}
+	delete form;
+
 	return 0;
 }

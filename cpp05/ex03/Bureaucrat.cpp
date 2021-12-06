@@ -58,11 +58,11 @@ std::ostream& operator <<(std::ostream& os, const Bureaucrat& b){
     return os;
 }
 
-void Bureaucrat::signForm(const Form &form)
+void Bureaucrat::signForm(Form &form)
 {
 	try
 	{
-		form.getIsSigned();
+		form.beSigned(*this);
 		std::cout << this->name << " signs " << form.getName() << '\n';
 	}
 	catch (std::exception &e)

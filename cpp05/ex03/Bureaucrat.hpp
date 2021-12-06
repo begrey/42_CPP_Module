@@ -12,9 +12,9 @@ class Bureaucrat
     private:
         const std::string name;
         int grade;
+        Bureaucrat();
 
     public:
-        Bureaucrat();
         Bureaucrat(std::string const name, int const grade);
         ~Bureaucrat();
         Bureaucrat(const Bureaucrat& origin);
@@ -26,7 +26,7 @@ class Bureaucrat
         void decrement();
         // ? sign이 true면 "<bureaucrat> signs <form>", 
         // ? sign이 false면 "<bureaucrat> cannot sign <form> because <reason>"
-        void signForm(const Form &f);
+        void signForm(Form &f);
         void executeForm(Form const & form);
         class GradeTooHighException : public std::exception
         {

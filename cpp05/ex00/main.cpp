@@ -9,12 +9,10 @@ int main()
         //Bureaucrat b2("jimkwon_wrong", 0); // ! error
         //Bureaucrat b3("jimkwon_wrong", 151); // ! error
         Bureaucrat b4 = b1;
-        Bureaucrat b5;
-        b5 = b4;
+        Bureaucrat b5("jimkwon2", 1);
         b4.setGrade(150);
-        b5.setGrade(1);
-        //b4.decrement(); // ! error
-        //b5.increment(); // ! error
+       // b4.decrement(); // ! error
+       // b5.increment(); // ! error
         b4.increment();
         b5.decrement();
         std::cout << "---------print bureaycrats-----------" << std::endl;

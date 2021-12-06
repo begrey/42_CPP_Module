@@ -18,7 +18,7 @@ class Form
     public:
         Form();
         Form(std::string const name, int const grade_to_sign, int const grade_to_execute);
-        ~Form();
+        virtual ~Form();
         Form(const Form& origin);
         Form& operator=(const Form& origin);
         std::string getName() const;
