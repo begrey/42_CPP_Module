@@ -15,7 +15,8 @@ void convert::parsing(std::string arg){
     std::string last = arg.substr(arg.length() - 1, arg.length());
     if (last == "f" && arg != "-inf" && arg != "+inf")
         arg = arg.substr(0, arg.length() - 1);
-    if (arg.find(".") != std::string::npos)
+    last = arg.substr(arg.length() - 1, arg.length());
+    if (arg.find(".") != std::string::npos && last != "0")
         decimal_point = true;
     if (arg == "-inf" || arg == "+inf" || arg == "nan")
         nan_inf_flag = true;
@@ -49,8 +50,6 @@ void convert::to_char(std::string arg, double double_arg){
 void convert::to_int(std::string arg, double double_arg){
     int i;
     std::cout << "int: ";
-    // if ((double_arg != double_arg) || isinf(double_arg))
-    //     std::cout << "impossible" << std::endl;
     if ((double_arg == 0 && (arg == "0" || arg == "0.0")) || double_arg != 0) {
         if (double_arg >= -2147483648 && double_arg <= 2147483647) {
             i = static_cast<int>(double_arg);
