@@ -65,10 +65,15 @@ void convert::to_int(std::string arg, double double_arg){
 void convert::to_float(std::string arg, double double_arg, bool decimal_flag, bool nan_inf_flag){
     float f = static_cast<float>(double_arg);
     std::cout << "float: ";
-    if (arg == "0" || double_arg != 0)
+    std::string inf_str = std::to_string(f);
+    if (inf_str == "inf" || inf_str == "-inf") {
         std::cout << f;
-    else if (arg == "+inf" || arg == "-inf" || arg == "nan")
+        nan_inf_flag = true;
+    }
+    else if (arg == "+inf" || arg == "-inf" || arg == "nan") 
         std::cout << arg;
+    else if (arg == "0" || double_arg != 0)
+        std::cout << f;
     else if (arg == "0.0")
         std::cout << "0";
     else {
