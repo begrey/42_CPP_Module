@@ -35,7 +35,7 @@ void convert::print(std::string arg, double double_arg, bool decimal_flag, bool 
 void convert::to_char(std::string arg, double double_arg){
     char c;
     std::cout << "char: ";
-    if (arg.length() == 1 && double_arg == 0)
+    if (arg.length() == 1 && double_arg == 0 && arg != "0")
         std::cout << arg << std::endl;
     else if (double_arg > 31 && double_arg < 127) {
         c = static_cast<char>(double_arg);

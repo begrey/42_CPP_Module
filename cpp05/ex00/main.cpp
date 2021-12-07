@@ -6,8 +6,8 @@ int main()
     {
         Bureaucrat b1("jimkwon", 4);
         // ! 범위는 1 ~ 150
-        //Bureaucrat b2("jimkwon_wrong", 0); // ! error
-        //Bureaucrat b3("jimkwon_wrong", 151); // ! error
+       // Bureaucrat b2("jimkwon_wrong", 0); // ! error
+       // Bureaucrat b3("jimkwon_wrong", 151); // ! error
         Bureaucrat b4 = b1;
         Bureaucrat b5("jimkwon2", 1);
         b4.setGrade(150);

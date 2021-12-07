@@ -9,15 +9,15 @@ int main()
 	{
         std::cout << "-------_Action_-------------\n";
 		ShrubberyCreationForm sForm("sForm");
-        sForm.Action();
+        //sForm.Action();
 
 		RobotomyRequestForm rForm("rForm");
-		rForm.Action();
+		//rForm.Action();
 
 		PresidentialPardonForm pForm("pForm");
-		pForm.Action();
+		//pForm.Action();
 
-		Bureaucrat b("b", 1);
+		Bureaucrat b("b", 150);
 
         std::cout << "-------sign and excute-------------\n";
 		sForm.beSigned(b);
@@ -28,7 +28,7 @@ int main()
 		pForm.beSigned(b);
 		b.executeForm(pForm);
         std::cout << "-------rForm is not signed-------------\n";
-        // ? pForm.beSigned(b);
+        //rForm.beSigned(b);
 		rForm.execute(b);
 	}
 	catch (std::exception &e)
