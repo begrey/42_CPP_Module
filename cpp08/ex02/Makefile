@@ -1,6 +1,7 @@
-NAME		= easyfind
+NAME		= MutantStack
 
 SRCS		= ./main.cpp \
+				./mutantstack.cpp
 
 OBJS		= $(SRCS:.c=.o)
 RM			= rm -f

@@ -25,7 +25,7 @@ unsigned int Span::getN(){
     return this->N;
 }
 void Span::addNumber(int num){
-    if (this->ints.size() >= (unsigned int)num)
+    if (this->ints.size() >= this->N)
         throw FullSpanException();
     this->ints.push_back(num);
 }
@@ -35,7 +35,7 @@ void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterato
 int Span::shortestSpan(){
     if (this->ints.size() < 2)
         throw NotEnoughSpanNumException();
-    int smallest_span = this->ints[0];
+    int smallest_span = *max_element(this->ints.begin(), this->ints.end());
     std::vector<int> temp;
     temp.resize(this->ints.size());
     std::copy(this->ints.begin(), this->ints.end(), temp.begin());

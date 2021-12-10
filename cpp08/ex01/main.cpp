@@ -29,7 +29,7 @@ void full_span_error(Span &span)
 int main()
 {
     Span span_with_num(5);
-    std::cout << "Vector is Empty.. So Throw Error" << std::endl;
+    std::cout << "-------------Vector is Empty.. So Throw Error---------------" << std::endl;
     longest_error(span_with_num);
     shortest_error(span_with_num);
     span_with_num.addNumber(7);
@@ -37,7 +37,7 @@ int main()
     span_with_num.addNumber(1);
     span_with_num.addNumber(42);
     span_with_num.addNumber(17);
-    std::cout << "Vector is Full.. So Throw Error" << std::endl;
+    std::cout << "--------------Vector is Full.. So Throw Error---------------" << std::endl;
     full_span_error(span_with_num);
     std::cout << "----------All Element..----------" << std::endl;
     span_with_num.showAllElement();
@@ -47,11 +47,14 @@ int main()
     std::cout << "----------add with iterator----------" << std::endl;
     srand(time(NULL));
     Span span_with_iter(10000);
-    std::vector<int>::iterator begin = span_with_iter.getInts().begin();
-    std::vector<int>::iterator end;
-    for (unsigned int i = 0; i < span_with_iter.getN(); i++)
-        end++;
-    span_with_iter.addNumber(begin, end);
+    std::vector<int> vec(10000);
+    std::vector<int>::iterator begin = vec.begin();
+    *begin++ = rand() % 10000 + 10000;
+    for (int i = 0; begin != vec.end(); i++) {
+        *begin = i;
+        begin++;
+    }
+    span_with_iter.addNumber(vec.begin(), vec.end());
     span_with_iter.showAllElement();
     std::cout << "LongestSpan : " << span_with_iter.longestSpan() << std::endl;
     std::cout << "ShortestSpan : " << span_with_iter.shortestSpan() << std::endl;
