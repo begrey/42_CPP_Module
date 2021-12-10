@@ -20,7 +20,7 @@ class Span {
         std::vector<int> getInts();
         unsigned int getN();
         void addNumber(int num);
-        void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+        void addNumber(const std::vector<int>::iterator begin, const std::vector<int>::iterator end);
         int shortestSpan();
         int longestSpan();
         void showAllElement();

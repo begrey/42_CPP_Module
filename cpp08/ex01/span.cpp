@@ -29,7 +29,7 @@ void Span::addNumber(int num){
         throw FullSpanException();
     this->ints.push_back(num);
 }
-void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end) {
+void Span::addNumber(const std::vector<int>::iterator begin, const std::vector<int>::iterator end) {
     this->ints.assign(begin, end);
 }
 int Span::shortestSpan(){

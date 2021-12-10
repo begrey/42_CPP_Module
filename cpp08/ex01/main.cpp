@@ -53,7 +53,7 @@ int main()
     for (int i = 0; begin != vec.end(); i++) {
         *begin = i;
         begin++;
-    }
+    } 
     span_with_iter.addNumber(vec.begin(), vec.end());
     span_with_iter.showAllElement();
     std::cout << "LongestSpan : " << span_with_iter.longestSpan() << std::endl;
